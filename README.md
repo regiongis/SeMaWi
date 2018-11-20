@@ -107,6 +107,20 @@ and change it to
 
 `$wgDefaultSkin = "chameleon";`
 
+### MySQL backup
+If backup of the Wiki is needed following steps vil setup a cronjob, which dumps MySQL data from the container to the host every night. 
+* Place `backup.sh` from mutables in `/srv/semawi/`
+* `chmod +x /srv/semawi/backup.sql` if needed
+* Create folder for backup `mkdir /srv/semawi/backup`
+* Add `0 0 * * * /srv/semawi/backup.sh` to backup every midtnight
+
+```
+# Backup
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+
+# Restore
+cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+```
 ### GeoCloud2 Import Cronjob
 
 There are four settings you need to modify to activate the [Mapcentia GeoCloud2](https://github.com/mapcentia/geocloud2) geodata table import into SeMaWi. SeMawi exposes the GC2 sync config in a volume, find it with `docker inspect your-container-name`. In this volume you will fine the cfg file, and the following settings need to be set correctly:
