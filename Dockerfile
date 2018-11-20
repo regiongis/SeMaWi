@@ -1,6 +1,6 @@
 FROM debian:jessie
 MAINTAINER Josef Assad <josef@josefassad.com>
-LABEL version="2017-01"
+LABEL version="2018"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -9,11 +9,17 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY sources.list.d/jessie-deb-src.list \
      /etc/apt/sources.list.d/jessie-deb-src.list
 
+# Add php7
+RUN apt-get update && \
+    apt-get -y install wget ca-certificates apt-transport-https && \
+    wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - && \
+    echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/php.list
+
 # Get stack up
 RUN apt-get update && \
-    apt-get -y install mysql-client apache2 curl php5 git php-pear \
-    php5-mysql php5-pgsql libapache2-mod-php5 virtualenv cron freetds-bin \
-    tdsodbc php5-odbc unixodbc odbcinst graphviz graphviz-dev imagemagick && \
+    apt-get -y install mysql-client apache2 curl php git php-mbstring php-pear \
+    php-mysql php-pgsql libapache2-mod-php virtualenv cron freetds-bin \
+    tdsodbc php-odbc unixodbc odbcinst graphviz graphviz-dev imagemagick && \
     apt-get -y build-dep python-lxml
 
 # Copy over the Mediawiki configs needed
