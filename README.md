@@ -110,9 +110,9 @@ and change it to
 ### MySQL backup
 If backup of the Wiki is needed following steps vil setup a cronjob, which dumps MySQL data from the container to the host every night. 
 * Place `backup.sh` from mutables in `/srv/semawi/`
-* `chmod +x /srv/semawi/backup.sql` if needed
+* `chmod +x /srv/semawi/backup.sh` if needed
 * Create folder for backup `mkdir /srv/semawi/backup`
-* Add `0 0 * * * /srv/semawi/backup.sh` to backup every midtnight
+* Add `0 0 * * * /srv/semawi/backup.sh` to the root crontab to backup every midtnight
 
 ```
 # Backup
