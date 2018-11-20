@@ -9,7 +9,7 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
 
    # Install Mediawiki
    curl -o /tmp/mediawiki.tar.gz \
-   https://releases.wikimedia.org/mediawiki/1.27/mediawiki-1.27.3.tar.gz
+   https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
    tar xvf /tmp/mediawiki.tar.gz -C /var/www/wiki/ --strip 1
    chown -R root:root /var/www/wiki
    chown -R www-data:www-data /var/www/wiki/images/
@@ -39,13 +39,13 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    cd /var/www/wiki/extensions/
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DataTransfer.git
    cd /var/www/wiki/extensions/DataTransfer
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install HeaderTabs
    cd /var/www/wiki/extensions/
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/HeaderTabs.git
    cd /var/www/wiki/extensions/HeaderTabs
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install MasonryMainPage
    cd /var/www/wiki/extensions/
@@ -62,26 +62,26 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    git clone https://github.com/wikimedia/mediawiki-extensions-EditUser.git
    mv mediawiki-extensions-EditUser EditUser
    cd /var/www/wiki/extensions/EditUser
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install ExternalData
    cd /var/www/wiki/extensions/
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ExternalData
    cd /var/www/wiki/extensions/ExternalData
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install RevisionSlider
    cd /var/www/wiki/extensions/
    git clone https://github.com/wikimedia/mediawiki-extensions-RevisionSlider.git
    mv mediawiki-extensions-RevisionSlider RevisionSlider
    cd /var/www/wiki/extensions/RevisionSlider
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install OdbcDatabase
    cd /var/www/wiki/extensions/
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OdbcDatabase.git
    cd /var/www/wiki/extensions/OdbcDatabase
-   git checkout -q REL1_27
+   git checkout -q REL1_31
    # der er en lille fejl i ODBC udvidelsen som skal fixes
    # Se https://www.mediawiki.org/wiki/Extension:OdbcDatabase#Possible_code_changes
    $SED -i'' "s/public static function getSoftwareLink/public function getSoftwareLink/" \
@@ -92,7 +92,7 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    git clone https://github.com/wikimedia/mediawiki-extensions-Maintenance.git
    mv mediawiki-extensions-Maintenance Maintenance
    cd /var/www/wiki/extensions/Maintenance
-   git checkout -q REL1_27
+   git checkout -q REL1_31
 
    # Install PlantUML
    cd /var/www/wiki/extensions/
