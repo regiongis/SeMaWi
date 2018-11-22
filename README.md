@@ -107,7 +107,11 @@ and change it to
 
 `$wgDefaultSkin = "chameleon";`
 
-### MySQL backup
+### Backup
+#### XML
+It is possible to [Export](https://www.mediawiki.org/wiki/Help:Export) and [Import](https://www.mediawiki.org/wiki/Manual:Importing_XML_dumps) templates, forms, properties.
+
+#### MySQL
 If backup of the Wiki is needed following steps vil setup a cronjob, which dumps MySQL data from the container to the host every night. 
 * Place `backup.sh` from mutables in `/srv/semawi/`
 * `chmod +x /srv/semawi/backup.sh` if needed
