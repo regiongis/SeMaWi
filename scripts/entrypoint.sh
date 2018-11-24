@@ -8,11 +8,11 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    SED="/bin/sed"
 
    # Install Mediawiki
-   curl -o /tmp/mediawiki.tar.gz \
-   https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
-   tar xvf /tmp/mediawiki.tar.gz -C /var/www/wiki/ --strip 1
-   chown -R root:root /var/www/wiki
-   chown -R www-data:www-data /var/www/wiki/images/
+#    curl -o /tmp/mediawiki.tar.gz \
+#    https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
+#    tar xvf /tmp/mediawiki.tar.gz -C /var/www/wiki/ --strip 1
+#    chown -R root:root /var/www/wiki
+#    chown -R www-data:www-data /var/www/wiki/images/
 
    # Install the config and database
    mv /etc/semawi/composer.local.json /var/www/wiki/composer.local.json
@@ -34,8 +34,8 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    # install GeSHi syntax highlighting
    cd /var/www/wiki/extensions/SyntaxHighlight_GeSHi/
    php /var/www/wiki/composer.phar update --no-dev
+   
    # Install DataTransfer
-
    cd /var/www/wiki/extensions/
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DataTransfer.git
    cd /var/www/wiki/extensions/DataTransfer
@@ -46,12 +46,6 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/HeaderTabs.git
    cd /var/www/wiki/extensions/HeaderTabs
    git checkout -q REL1_31
-
-   # Install MasonryMainPage
-   cd /var/www/wiki/extensions/
-   git clone https://github.com/enterprisemediawiki/MasonryMainPage.git
-   cd MasonryMainPage
-   git checkout -q 9837244ccf70f3823e8f5366045e1637e65bd993
 
    # Install ImagesLoaded
    cd /var/www/wiki/extensions/
@@ -119,4 +113,4 @@ fi
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2.pid
 
-exec apache2 -DFOREGROUND
+# exec apache2 -DFOREGROUND

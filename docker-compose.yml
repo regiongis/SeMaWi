@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: semawi:2018
     ports:
-      - "4466:80"
+      - "4488:80"
     volumes:
       - /srv/semawi/LocalSettings.php:/var/www/wiki/LocalSettings.php
       - /srv/semawi/php.ini:/etc/php5/apache2/php.ini
