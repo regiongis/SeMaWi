@@ -118,7 +118,7 @@ If backup of the Wiki is needed following steps vil setup a cronjob, which dumps
 * Create folder for backup `mkdir /srv/semawi/backup`
 * Add `0 0 * * * /srv/semawi/backup.sh` to the root crontab to backup every midtnight
 
-```
+```bash
 # Backup
 docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
 
