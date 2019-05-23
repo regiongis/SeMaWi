@@ -12,13 +12,14 @@ concepts and basic usage.
 
 ## Deployment configuration
 
-As part of the `docker-compose up` command, a couple og mutable data will be mounted for you to the running container:
+As part of the `docker-compose up` command, following mutable data will be mounted for you to the running container:
 
 1. `LocalSettings.php`
 2. Logo file
 
-Versions of these files in the `res` folder distributed with the source.
+Versions of these files are in the `res` folder and are distributed with the source.
 
+### Localsettings.php
 Please make sure you review the provided configuration files to adapt the system to your needs. Notably, you will want to secure the following settings in `LocalSettings.php`:
 
 - `$wgSecretKey`
@@ -33,8 +34,6 @@ otherwise, all wiki pages appear empty. A default user _SeMaWi_
 (member of groups _SysOp_ and _Bureaucrat_) has been created for you
 with the case-sensitive password `SeMaWiSeMaWi`. You should change
 this password as your first action in the running system.
-
-### Localsettings.php
 
 Set `$wgServer` to the external address of the container like so:
 
