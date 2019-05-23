@@ -160,23 +160,22 @@ $wgGroupPermissions['sysop']['edituser'] = true;
 # The following extensions were automatically enabled:
 wfLoadExtension( 'DataTransfer' );
 wfLoadExtension( 'EditUser' );
+wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ExternalData' );
 wfLoadExtension( 'HeaderTabs' );
 wfLoadExtension( 'Maintenance' );
-require_once "$IP/extensions/OdbcDatabase/OdbcDatabase.php";
+wfLoadExtension( 'OdbcDatabase' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'PdfHandler' );
 wfLoadExtension( 'PlantUML' );
-wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'RevisionSlider' );
-require_once "$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php";
-require_once "$IP/extensions/SemanticResultFormats/SemanticResultFormats.php";
+wfLoadExtension( 'SemanticResultFormats' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'PageForms' );
 wfLoadExtension( 'SemanticFormsSelect' );
 
-enableSemantics('localhost');
 # Semantic media wiki
+enableSemantics('localhost');
 $smwgCacheType = CACHE_NONE;
 $smwgQMaxDepth = 10;
 $smwgQMaxSize = 100;
@@ -192,7 +191,7 @@ $wgShowSQLErrors = true;
 # Visual Editor
 
 wfLoadExtension( 'VisualEditor' );
-$wgDefaultUserOptions['visualeditor-enable'] = 1;
+#$wgDefaultUserOptions['visualeditor-enable'] = 1;
 $wgHiddenPrefs[] = 'visualeditor-enable';
 
 $wgVirtualRestConfig['modules']['parsoid'] = array(
