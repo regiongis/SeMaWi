@@ -125,6 +125,12 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > back
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 ```
+If you want to delete old backups you can setup following in the crontab. This deletes all backups older than 15 days.
+```bash
+@daily find /srv/semawi/backup/ -mtime +15 -exec rm {} \;
+```
+This deletes all backups older than 15 days.
+
 ### GeoCloud2 Import Cronjob
 
 There are four settings you need to modify to activate the [Mapcentia GeoCloud2](https://github.com/mapcentia/geocloud2) geodata table import into SeMaWi. SeMawi exposes the GC2 sync config in a volume, find it with `docker inspect your-container-name`. In this volume you will fine the cfg file, and the following settings need to be set correctly:
