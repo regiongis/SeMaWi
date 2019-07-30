@@ -125,7 +125,7 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > back
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 ```
-If you want to delete old backups you can setup following in the crontab. This deletes all backups older than 15 days.
+If you want to delete old backups you can setup following in the crontab.
 ```bash
 @daily find /srv/semawi/backup/ -mtime +15 -exec rm {} \;
 ```
