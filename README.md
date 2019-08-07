@@ -125,11 +125,19 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > back
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 ```
+
+After restore you might execute:
+```bash
+docker exec -i semawi-mediawiki php /var/www/wiki/maintenance/rebuildall.php
+docker exec -i semawi-mediawiki php /var/www/wiki/maintenance/runJobs.php
+```
+
 If you want to delete old backups you can setup following in the crontab.
 ```bash
 @daily find /srv/semawi/backup/ -mtime +15 -exec rm {} \;
 ```
 This deletes all backups older than 15 days.
+
 
 ### GeoCloud2 Import Cronjob
 
