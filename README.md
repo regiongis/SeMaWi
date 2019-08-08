@@ -161,6 +161,7 @@ Having set the integration up, you must instruct the docker host to call the scr
 
 It is strongly recommended you coordinate the time at which the import runs with Mapcentia.
 
-# Cheatsheat
+# Cheat sheet
 [Change password for at user](https://www.mediawiki.org/wiki/Manual:Resetting_passwords): 
+
 `docker exec -i semawi-mediawiki php /var/www/wiki/maintenance/changePassword.php --user=UserName --password=NewPW`
