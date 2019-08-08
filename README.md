@@ -160,3 +160,7 @@ cd /opt/
 Having set the integration up, you must instruct the docker host to call the script from the host's cronjob. Refer to the section "Pulling geodata from a GeoCloud2 instance" in this document to see how to do this.
 
 It is strongly recommended you coordinate the time at which the import runs with Mapcentia.
+
+# Cheatsheat
+[Change password for at user](https://www.mediawiki.org/wiki/Manual:Resetting_passwords): 
+`docker exec -i semawi-mediawiki php /var/www/wiki/maintenance/changePassword.php --user=UserName --password=NewPW`
