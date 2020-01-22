@@ -42,15 +42,30 @@ with the case-sensitive password `SeMaWiSeMaWi`. You should change
 this password as your first action in the running system.
 
 ### Localsettings.php
-
+#### Domain/URL
 Set `$wgServer` to the external address of the container like so:
 
 ```php
 $wgServer="http://semawi.example.com";
 ```
 
-You must edit the `$wgSMTP` in `LocalSettings.php` to reflect where the SMTP server is which SeMaWi can use.
+#### Email setup (SMTP)
+You must edit the `$wgSMTP` in `LocalSettings.php` to reflect where the SMTP server is which SeMaWi can use. 
+```php
+$wgSMTP = array(
+    'host'     => "mail.example.com", // Where the SMTP server is located. Could also be an IP-address
+    'IDHost'   => "example.com",      // Generally this will be the domain name
+    'port'     => 465,                // Port to use when connecting to the SMTP server
+    'auth'     => true,               // Should we use SMTP authentication (true or false)
+    'username' => "my_user_name",     // Username to use for SMTP authentication (if being used)
+    'password' => "my_password"       // Password to use for SMTP authentication (if being used)
+);
+```
+The exact settings required depends on your setup. See the [SMTP-manual](https://www.mediawiki.org/wiki/Manual:$wgSMTP#Details) for more details.
 
+The use of email/SMTP depends on the `pear` packages `Mail` and `Net_SMTP`. These should be automatically installed by the script `entrypoint.sh`.
+
+#### Enabling Semantic Mediawiki
 If you're running SeMaWi in production, you will need to edit the line in `LocalSettings.php` which looks like `enableSemantics( 'localhost' );`, replacing localhost with the domain name you are using.
 
 ## Optional features
