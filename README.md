@@ -131,7 +131,7 @@ If backup of the Wiki is needed following steps vil setup a cronjob, which dumps
 * Place `backup.sh` from mutables in `/srv/semawi/`
 * `chmod +x /srv/semawi/backup.sh` if needed
 * Create folder for backup `mkdir /srv/semawi/backup`
-* Add `0 0 * * * /srv/semawi/backup.sh` to the root crontab to backup every midtnight
+* Add `0 0 * * * sh /srv/semawi/backup.sh` to the root crontab to backup every midtnight
 
 ```bash
 # Backup
@@ -149,7 +149,7 @@ docker exec -i semawi-mediawiki php /var/www/wiki/maintenance/runJobs.php
 
 If you want to delete old backups you can setup following in the crontab.
 ```bash
-@daily find /srv/semawi/backup/ -mtime +15 -exec rm {} \;
+@daily find /srv/semawi/backup/* -mtime +15 -exec rm {} \;
 ```
 This deletes all backups older than 15 days.
 
