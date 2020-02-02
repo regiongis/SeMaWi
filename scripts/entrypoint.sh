@@ -116,6 +116,8 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
 
 fi
 
+# Enable apache module for http headers
+a2enmod headers
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2.pid
 
