@@ -21,6 +21,7 @@ RUN mkdir /etc/semawi/
 COPY composer.local.json /etc/semawi/composer.local.json
 COPY db.sql /etc/semawi/db.sql
 ADD 001-semawi.conf /etc/apache2/sites-available/001-semawi.conf
+ADD apache2.conf /etc/apache2/apache2.conf
 
 # Installing the GC2 daemon
 COPY scripts/installgc2daemon.sh /opt/installgc2daemon.sh
