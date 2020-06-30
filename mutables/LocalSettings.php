@@ -236,6 +236,9 @@ wfLoadExtension( 'SemanticFormsSelect' );
 wfLoadExtension( 'ImageMap' );
 require_once('extensions/PlantUML/PlantUML.php');
 
+# NewSignupPage setup
+wfLoadExtension( 'NewSignupPage' );
+
 # QuestyCaptcha setup
 wfLoadExtension([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
 $wgCaptchaTriggers = array();

@@ -99,6 +99,22 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    git clone https://github.com/pjkersten/PlantUML.git
    curl -L https://downloads.sourceforge.net/project/plantuml/plantuml.jar -o /usr/local/plantuml.jar
 
+   # Install NewSignupPage
+   cd /var/www/wiki/extensions/
+   git clone https://github.com/wikimedia/mediawiki-extensions-NewSignupPage.git
+   mv mediawiki-extensions-NewSignupPage NewSignupPage
+   cd /var/www/wiki/extensions/NewSignupPage
+   git checkout -q REL1_27
+
+   cd /var/www/wiki/extensions/NewSignupPage/i18n
+   echo "{
+   \"@metadata\": {
+      \"authors\": []
+   },
+   \"shoutwiki-loginform-tos\": \"Jeg accepterer IoTwikis [http://iotwiki.dk/index.php?title=Code_of_Conduct Code of Conduct]\",
+   \"shoutwiki-must-accept-tos\": \"Du skal acceptere webstedets Code of Conduct for at kunne oprette en konto\"
+}" > da.json
+
    # Update php pear and install a couple of dependencies
    pear upgrade --force --alldeps http://pear.php.net/get/PEAR-1.10.4
    pear channel-update pear.php.net
@@ -118,6 +134,7 @@ fi
 
 # Enable apache module for http headers
 a2enmod headers
+
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2.pid
 
