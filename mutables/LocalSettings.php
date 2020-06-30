@@ -240,7 +240,9 @@ require_once('extensions/PlantUML/PlantUML.php');
 wfLoadExtension( 'NewSignupPage' );
 
 # QuestyCaptcha setup
-wfLoadExtension([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
+wfLoadExtension( 'ConfirmEdit' );
+wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );
+
 $wgCaptchaTriggers = array();
 $wgCaptchaTriggers['edit']          = false;
 $wgCaptchaTriggers['create']        = false;

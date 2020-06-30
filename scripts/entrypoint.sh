@@ -115,6 +115,23 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    \"shoutwiki-must-accept-tos\": \"Du skal acceptere webstedets Code of Conduct for at kunne oprette en konto\"
 }" > da.json
 
+   # Configure QuestyCaptcha
+   cd /var/www/wiki/extensions/ConfirmEdit/QuestyCaptcha/i18n
+   echo "{
+   \"@metadata\": {
+      \"authors\": []
+   },
+   \"questycaptcha-desc\": \"Questy CAPTCHA generator til Confirm Edit\",
+   \"questycaptcha-addurl\": \"Dine ændringer inkluderer ny eksterne links.\nUdfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-badlogin\": \"Fejl i login. Udfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-createaccount\": \"Udfyld venligst CAPTCHA for at oprette en bruger ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-create\": \"Udfyld venligst CAPTCHA for at oprette en ny side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-edit\": \"Udfyld venligst CAPTCHA for at redigere denne side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-sendemail\": \"Udfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptchahelp-text\": \"Denne wiki benytter CAPTCHAs til at undgå spam og bots. Du kan opleve at skulle udfylde CAPTCHAs i flere situationer, herunder ved oprettelse af brugere og redigering af sider.\"
+}" > da.json
+   cd /
+
    # Update php pear and install a couple of dependencies
    pear upgrade --force --alldeps http://pear.php.net/get/PEAR-1.10.4
    pear channel-update pear.php.net
