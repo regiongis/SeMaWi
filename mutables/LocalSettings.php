@@ -18,7 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "SeMaWi";
+$wgSitename = "IoTwiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -29,7 +29,7 @@ $wgScriptPath = "";
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost";
+$wgServer = "http://iotwiki.dk";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
@@ -43,8 +43,8 @@ $wgLogo = "$wgScriptPath/resources/assets/iotwiki_logo.png";
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "josef@josefassad.com";
-$wgPasswordSender = "josef@josefassad.com";
+$wgEmergencyContact = "iotwiki.dk@gmail.com";
+$wgPasswordSender = "iotwiki.dk@gmail.com";
 
 $wgEnotifUserTalk = true; # UPO
 $wgEnotifWatchlist = true; # UPO
@@ -117,7 +117,7 @@ $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
 $wgGroupPermissions['*']['createaccount'] = true;
-$wgGroupPermissions['*']['edit'] = true;
+$wgGroupPermissions['*']['edit'] = false;
 $wgGroupPermissions['*']['read'] = true;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
@@ -163,7 +163,7 @@ wfLoadExtension( 'ImagesLoaded' );
 wfLoadExtension( 'Maintenance' );
 require_once "$IP/extensions/HeaderTabs/HeaderTabs.php";
 
-enableSemantics( 'localhost' );
+enableSemantics( 'iotwiki.dk' );
 
 # Semantic MediaWiki settings
 $smwgCacheType = CACHE_NONE;
