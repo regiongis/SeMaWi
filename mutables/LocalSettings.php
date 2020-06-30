@@ -236,6 +236,18 @@ wfLoadExtension( 'SemanticFormsSelect' );
 wfLoadExtension( 'ImageMap' );
 require_once('extensions/PlantUML/PlantUML.php');
 
+# QuestyCaptcha setup
+wfLoadExtension([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
+$wgCaptchaTriggers = array();
+$wgCaptchaTriggers['edit']          = false;
+$wgCaptchaTriggers['create']        = false;
+$wgCaptchaTriggers['createtalk']    = false;
+$wgCaptchaTriggers['addurl']        = false;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
+# QuestyCaptcha spørgsmål
+$wgCaptchaQuestions[] = array( 'question' => "Hvad hedder Danmarks statsminister?", 'answer' => array( 'mette frederiksen', 'Mette Frederiksen', 'Mette frederiksen', 'mette Frederiksen' ) );
 
 $wgAllowDisplayTitle = true;
 $wgRestrictDisplayTitle = false;
