@@ -122,13 +122,13 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
       \"authors\": []
    },
    \"questycaptcha-desc\": \"Questy CAPTCHA generator til Confirm Edit\",
-   \"questycaptcha-addurl\": \"Dine ændringer inkluderer ny eksterne links.\nUdfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptcha-badlogin\": \"Fejl i login. Udfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptcha-createaccount\": \"Udfyld venligst CAPTCHA for at oprette en bruger ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptcha-create\": \"Udfyld venligst CAPTCHA for at oprette en ny side ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptcha-edit\": \"Udfyld venligst CAPTCHA for at redigere denne side ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptcha-sendemail\": \"Udfyld venligst CAPTCHA ([[Special:Captcha/help|mere info]]):\",
-   \"questycaptchahelp-text\": \"Denne wiki benytter CAPTCHAs til at undgå spam og bots. Du kan opleve at skulle udfylde CAPTCHAs i flere situationer, herunder ved oprettelse af brugere og redigering af sider.\"
+   \"questycaptcha-addurl\": \"Dine ændringer inkluderer ny eksterne links.\nUdfyld venligst sikkerhedsspørgsmålet ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-badlogin\": \"Fejl i login. Udfyld venligst sikkerhedsspørgsmålet ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-createaccount\": \"Udfyld venligst sikkerhedsspørgsmålet for at oprette en bruger ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-create\": \"Udfyld venligst sikkerhedsspørgsmålet for at oprette en ny side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-edit\": \"Udfyld venligst sikkerhedsspørgsmålet for at redigere denne side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-sendemail\": \"Udfyld venligst sikkerhedsspørgsmålet ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptchahelp-text\": \"Denne wiki benytter CAPTCHAs (sikkerhedsspørgsmål) til at undgå spam og bots. Du kan opleve at skulle udfylde CAPTCHAs i flere situationer, herunder ved oprettelse af brugere og redigering af sider.\"
 }" > da.json
    cd /
 
