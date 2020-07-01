@@ -152,6 +152,9 @@ fi
 # Enable apache module for http headers
 a2enmod headers
 
+# Enable apache ssl module
+a2enmod ssl
+
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2.pid
 

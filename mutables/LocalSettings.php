@@ -29,7 +29,7 @@ $wgScriptPath = "";
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://iotwiki.dk";
+$wgServer = "//iotwiki.dk";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
