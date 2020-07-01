@@ -18,7 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "SeMaWi";
+$wgSitename = "IoTwiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -29,22 +29,22 @@ $wgScriptPath = "";
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost";
+$wgServer = "//iotwiki.dk";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo = "$wgScriptPath/resources/assets/nanlogo.png";
+$wgLogo = "$wgScriptPath/resources/assets/iotwiki_logo.png";
 
 ## UPO means: this is also a user preference option
 
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "josef@josefassad.com";
-$wgPasswordSender = "josef@josefassad.com";
+$wgEmergencyContact = "iotwiki.dk@gmail.com";
+$wgPasswordSender = "iotwiki.dk@gmail.com";
 
 $wgEnotifUserTalk = true; # UPO
 $wgEnotifWatchlist = true; # UPO
@@ -117,7 +117,7 @@ $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
 $wgGroupPermissions['*']['createaccount'] = true;
-$wgGroupPermissions['*']['edit'] = true;
+$wgGroupPermissions['*']['edit'] = false;
 $wgGroupPermissions['*']['read'] = true;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
@@ -163,7 +163,7 @@ wfLoadExtension( 'ImagesLoaded' );
 wfLoadExtension( 'Maintenance' );
 require_once "$IP/extensions/HeaderTabs/HeaderTabs.php";
 
-enableSemantics( 'localhost' );
+enableSemantics( 'iotwiki.dk' );
 
 # Semantic MediaWiki settings
 $smwgCacheType = CACHE_NONE;
@@ -236,6 +236,23 @@ wfLoadExtension( 'SemanticFormsSelect' );
 wfLoadExtension( 'ImageMap' );
 require_once('extensions/PlantUML/PlantUML.php');
 
+# NewSignupPage setup
+wfLoadExtension( 'NewSignupPage' );
+
+# QuestyCaptcha setup
+wfLoadExtension( 'ConfirmEdit' );
+wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );
+
+$wgCaptchaTriggers = array();
+$wgCaptchaTriggers['edit']          = false;
+$wgCaptchaTriggers['create']        = false;
+$wgCaptchaTriggers['createtalk']    = false;
+$wgCaptchaTriggers['addurl']        = false;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
+# QuestyCaptcha spørgsmål
+$wgCaptchaQuestions[] = array( 'question' => "Hvad hedder Danmarks statsminister?", 'answer' => array( 'mette frederiksen', 'Mette Frederiksen', 'Mette frederiksen', 'mette Frederiksen' ) );
 
 $wgAllowDisplayTitle = true;
 $wgRestrictDisplayTitle = false;

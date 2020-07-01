@@ -99,6 +99,39 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
    git clone https://github.com/pjkersten/PlantUML.git
    curl -L https://downloads.sourceforge.net/project/plantuml/plantuml.jar -o /usr/local/plantuml.jar
 
+   # Install NewSignupPage
+   cd /var/www/wiki/extensions/
+   git clone https://github.com/wikimedia/mediawiki-extensions-NewSignupPage.git
+   mv mediawiki-extensions-NewSignupPage NewSignupPage
+   cd /var/www/wiki/extensions/NewSignupPage
+   git checkout -q REL1_27
+
+   cd /var/www/wiki/extensions/NewSignupPage/i18n
+   echo "{
+   \"@metadata\": {
+      \"authors\": []
+   },
+   \"shoutwiki-loginform-tos\": \"Jeg accepterer IoTwikis [http://iotwiki.dk/index.php?title=Code_of_Conduct Code of Conduct]\",
+   \"shoutwiki-must-accept-tos\": \"Du skal acceptere webstedets Code of Conduct for at kunne oprette en konto\"
+}" > da.json
+
+   # Configure QuestyCaptcha
+   cd /var/www/wiki/extensions/ConfirmEdit/QuestyCaptcha/i18n
+   echo "{
+   \"@metadata\": {
+      \"authors\": []
+   },
+   \"questycaptcha-desc\": \"Questy CAPTCHA generator til Confirm Edit\",
+   \"questycaptcha-addurl\": \"Dine redigeringer inkluderer ny eksterne links.\nUdfyld venligst feltet forneden ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-badlogin\": \"Fejl i login. Udfyld venligst feltet forneden ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-createaccount\": \"Udfyld venligst feltet forneden for at oprette en bruger ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-create\": \"Udfyld venligst feltet forneden for at oprette en ny side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-edit\": \"Udfyld venligst feltet forneden for at redigere denne side ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptcha-sendemail\": \"Udfyld venligst feltet forneden ([[Special:Captcha/help|mere info]]):\",
+   \"questycaptchahelp-text\": \"Denne wiki benytter CAPTCHAs til at udelukke spam og bots. Du kan opleve at skulle udfylde CAPTCHAs i flere situationer, herunder ved oprettelse af brugere og redigering af sider.\"
+}" > da.json
+   cd /
+
    # Update php pear and install a couple of dependencies
    pear upgrade --force --alldeps http://pear.php.net/get/PEAR-1.10.4
    pear channel-update pear.php.net
@@ -118,6 +151,10 @@ fi
 
 # Enable apache module for http headers
 a2enmod headers
+
+# Enable apache ssl module
+a2enmod ssl
+
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2.pid
 
