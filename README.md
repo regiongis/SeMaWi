@@ -41,13 +41,19 @@ otherwise, all wiki pages appear empty. A default user _SeMaWi_
 with the case-sensitive password `SeMaWiSeMaWi`. You should change
 this password as your first action in the running system.
 
+### Setting up SSL
+To set up SSL, you must manually input the CA certificate, the certificate, and the private key in the folder `/etc/ssl/wiki` with the names `ca_bundle.crt`, `certificate.crt`, and `private.key`.
+The server configuration expects these values, and will not work without them. To use SeMaWi without SSL, change the apache configuration file `0001-semawi.conf` such that the VirtualHost on port 80 no longer redirects to SSL, and disable the VirtualHost on port 443.
+
 ### Localsettings.php
 #### Domain/URL
 Set `$wgServer` to the external address of the container like so:
 
 ```php
-$wgServer="http://semawi.example.com";
+$wgServer="//semawi.example.com";
 ```
+
+
 
 #### Email setup (SMTP)
 You must edit the `$wgSMTP` in `LocalSettings.php` to reflect where the SMTP server is which SeMaWi can use. 
