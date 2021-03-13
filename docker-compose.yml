@@ -4,11 +4,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: semawi:2017_01
+    image: semawi:2021_03
     ports:
       - "80:80"
       - "443:443"
     volumes:
+      - /srv/semawi/certs/:/etc/ssl/wiki
       - /srv/semawi/LocalSettings.php:/var/www/wiki/LocalSettings.php
       - /srv/semawi/php.ini:/etc/php5/apache2/php.ini
       - /srv/semawi/images/:/var/www/wiki/images/

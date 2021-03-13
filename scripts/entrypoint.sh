@@ -28,7 +28,8 @@ if [ ! -d "/var/www/wiki/extensions" ]; then
 
    # Install composer and run its dependencies
    cd /var/www/wiki/
-   curl -sS https://getcomposer.org/installer | php
+   /usr/bin/php -r "copy('https://getcomposer.org/composer-1.phar', 'composer.phar');"
+   #curl -sS https://getcomposer.org/composer-1.phar | php
    /usr/bin/php /var/www/wiki/composer.phar update
 
    # install GeSHi syntax highlighting
